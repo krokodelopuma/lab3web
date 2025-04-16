@@ -8,7 +8,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
-import jakarta.transaction.UserTransaction;
 import lombok.Getter;
 import lombok.Setter;
 import org.example.db.Point;
@@ -33,13 +32,10 @@ public class PointBean implements Serializable {
     @Setter
     @Getter
     private String error;
-    private List<Point> points = new ArrayList<>(); // List to hold session points
+    private List<Point> points = new ArrayList<>(); 
 
     @PersistenceContext
     private EntityManager em;
-
-    @Resource
-    private UserTransaction userTransaction;
 
     @PostConstruct
     public void init() {
