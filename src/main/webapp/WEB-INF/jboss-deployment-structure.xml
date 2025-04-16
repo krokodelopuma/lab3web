@@ -1,0 +1,10 @@
+<jboss-deployment-structure>
+    <deployment>
+        <exclusions>
+            <module name="javax.faces.api" />
+        </exclusions>
+        <dependencies>
+            <module name="jakarta.faces.api" />
+        </dependencies>
+    </deployment>
+</jboss-deployment-structure>

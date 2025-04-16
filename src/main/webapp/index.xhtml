@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html">
+
+<h:head>
+    <title>Welcome page</title>
+    <h:outputStylesheet library="css" name="header.css" />
+    <h:outputStylesheet library="css" name="icons.css" />
+    <h:outputStylesheet library="css" name="index.css" />
+    <h:outputScript library="webjars" name="font-awesome/5.5.0/js/all.js" />
+</h:head>
+
+<h:body>
+    <header class="product-header">
+        <div class="header-content">
+        </div>
+    </header>
+
+    <div class="main-content">
+
+        <div class="credentials" style="align-self: center">
+            <p>Белик Тимур Алексеевич</p>
+            <p>Группа Р3214</p>
+            <p>Вариант 11400</p>
+            <p>Лабораторная 3</p>
+        </div>
+
+
+        <div id="clock" style="
+        font-size: 48px;
+        font-family: 'Courier New', monospace;
+        font-weight: bold;
+        color: #333;
+    ">--:--:--</div>
+
+        <script>
+            function updateClock() {
+                const now = new Date();
+
+                // Получаем компоненты времени
+                const hours = now.getHours();
+                const minutes = now.getMinutes();
+                const seconds = now.getSeconds();
+
+                // Форматируем с ведущими нулями
+                const formattedTime = [
+                    hours.toString().padStart(2, '0'),
+                    minutes.toString().padStart(2, '0'),
+                    seconds.toString().padStart(2, '0')
+                ].join(':');
+
+                // Выводим в DOM
+                document.getElementById('clock').textContent = formattedTime;
+            }
+            updateClock();
+            setInterval(updateClock, 8000);
+        </script>
+
+
+        <h:form>
+            <h:link title="gogogo" styleClass="icon-button" value ="Перейти к основному меню" outcome="goToMain"></h:link>
+        </h:form>
+
+    </div>
+
+</h:body>
+
+</html>
